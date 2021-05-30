@@ -19,7 +19,8 @@ The custom dataset consist of two classes nails and hair.
 ## 3. Datset Visualization 
   After annotating the dataset use the [inspect_hair_nails_data.ipynb](samples/beauty/inspect_hair_nails_data.ipynb) from the repo to visualize and confirm whether all the images in the dataset are properly annotated and mapping of the labels with their corresponding image is valid.
 
-  [NAILS](assets/nails1.png) [HAIRS](assets/hair.png)
+  ![NAILS](assets/nails1.png) 
+  ![HAIRS](assets/hair.png)
 
 
 ## 4. Model training on Custom dataset  
@@ -38,13 +39,13 @@ The custom dataset consist of two classes nails and hair.
 
 5. Model Evaluation Results.
   TRUE POSITIVES:
-  [NAILS](assets/nails_pred.png)
-  [HAIRS-1](assets/hair_pred1.png)
-  [HAIRS-2](assets/hair_pred2.png)
+  ![NAILS](assets/nails_pred.png)
+  ![HAIRS-1](assets/hair_pred1.png)
+  ![HAIRS-2](assets/hair_pred2.png)
 
   FALSE POSITIVES:
 
-  [HAIRS-3](assets/false_positive.png)
+  ![HAIRS-3](assets/false_positive.png)
 
 
 
