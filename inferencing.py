@@ -84,6 +84,8 @@ def resize_image(image, config):
     )
 
     return image
+def get_prediction(model, image):
+    return model.detect([image], verbose=0)
 
 def get_inferencing(model, *, image_path, config):
     """Takes the MASK-RCNN model and return the mask and bounding of an image
@@ -103,7 +105,7 @@ def get_inferencing(model, *, image_path, config):
 
     resized_image =  resize_image(image, config)
 
-    results = model.detect([resized_image], verbose=0)
+    results = get_prediction(model, resized_image)
     # exit()
 
     # Display results

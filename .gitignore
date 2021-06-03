@@ -13,6 +13,7 @@ __pycache__/
 # logs directory
 
 logs/
+test_images/
 
 # Distribution / packaging
 .Python
