@@ -111,8 +111,11 @@ def get_inferencing(model, *, image_path, config):
     # Display results
     ax = get_ax(1)
     r = results[0]
-   
-    return r['masks'], r['rois'], LABELS[r['class_ids'][0]]
+    label = r['class_ids'][0]
+    if len(r['class_ids']) < 1:
+        label = 0
+        
+    return r['masks'], r['rois'], LABELS[label]
 
 
 if __name__ == "__main__":

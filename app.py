@@ -11,7 +11,7 @@ ROOT_DIR = os.path.abspath(".")
 sys.path.append(ROOT_DIR)  # To find local version of the library
 
 from inferencing import *
-
+from color_detection import *
 
 def save_data(mask, bbox, label):
 
@@ -21,7 +21,7 @@ def save_data(mask, bbox, label):
 
     # final_mask_img = 
     
-    imsave('test_images/name.png', mask[:,:,0], cmap="gray")
+    imsave('test_images/name2.png', mask[:,:,0], cmap="gray")
 
     bbox_dict = {i: box.tolist() for i, box in enumerate(bbox)}
     data = {"label": label, "bbox": bbox_dict}
@@ -33,7 +33,7 @@ def save_data(mask, bbox, label):
 if __name__ == "__main__":
     config = InferenceConfig()
 
-    image_path = "samples/datasets/train/beauty_french-manicure_0_21.jpg"
+    image_path = "test_images/6.png"
 
     model = load_model(
         model_weights_path="logs/beauty20210526T0450/mask_rcnn_beauty_0030.h5")
@@ -41,10 +41,11 @@ if __name__ == "__main__":
     mask, bbox, label= get_inferencing(
         model, image_path=image_path, config=config)  
 
-    
-    t1 = Thread(target=save_data, args=[mask, bbox, label])
-    t1.start() 
+    if label != 0:
+        t1 = Thread(target=save_data, args=[mask, bbox, label])
+        t1.start() 
 
+        colors =  find_dominant_colors(image_path, bbox)
     # bbox_dict = {i: box for i, box in enumerate(bbox)}
     # data = {"label": label, "bbox": bbox_dict}
 
